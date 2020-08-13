@@ -12,9 +12,12 @@ spec:
     namespace: monitoring
     server: 'https://kubernetes.default.svc'
   source:
-    repoURL: 'https://github.com/muqtadir/eus-devqa.git'
+    repoURL: 'ssh://git@github.com:muqtadir/eus-devqa.git'
     targetRevision: HEAD
-    path: promtail-stack
+    path: base/promtail
+    helm:
+      valueFiles:
+        - promtail-stack/promtail/values-dev.yaml
   project: monitoring
   syncPolicy:
     automated: {}
