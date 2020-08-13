@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: promtail
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  labels:
+    scope: system
+spec:
+  destination:
+    namespace: monitoring
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'ssh://git@github.com:muqtadir/eus-devqa.git'
+    targetRevision: HEAD
+    path: promtail
+    helm:
+      valueFiles:
+        - values-dev.yaml
+  project: monitoring
+  syncPolicy:
+    automated: {}
