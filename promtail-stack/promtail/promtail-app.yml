@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: 'https://github.com/muqtadir/eus-devqa.git'
     targetRevision: HEAD
-    path: promtail
+    path: promtail-stack/promtail
     helm:
       valueFiles:
         - values-dev.yaml
