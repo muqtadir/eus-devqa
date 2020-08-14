@@ -17,7 +17,7 @@ spec:
     path: base/promtail
     helm:
       valueFiles:
-        - promtail/values-dev.yaml
+        - ../../promtail/values-dev.yaml
   project: monitoring
   syncPolicy:
     automated: {}
